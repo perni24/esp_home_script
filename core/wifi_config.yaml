@@ -27,5 +27,28 @@ wifi:
     password: ${wifi_ap_password}
     ap_timeout: ${wifi_ap_timeout}
 
-
 captive_portal:
+
+sensor:
+  - platform: wifi_signal
+    name: "WiFi Signal"
+    id: wifi_dbm
+    update_interval: 60s
+
+text_sensor:
+  - platform: template
+    name: "WiFi Quality"
+    lambda: |-
+      if (std::isnan(id(wifi_dbm).state)) return {"In attesa..."}
+      if (id(wifi_dbm).state > -50) return {"Eccellente"};
+      if (id(wifi_dbm).state > -60) return {"Ottimo"};
+      if (id(wifi_dbm).state > -70) return {"Buono"};
+      if (id(wifi_dbm).state > -80) return {"Scarso"};
+      return {"Pessimo"};
+    icon_template: |-
+      if (std::isnan(id(wifi_dbm).state)) return "mdi:wifi-refresh";
+      if (id(wifi_dbm).state > -60) return "mdi:wifi-strength-4";
+      if (id(wifi_dbm).state > -70) return "mdi:wifi-strength-3";
+      if (id(wifi_dbm).state > -80) return "mdi:wifi-strength-2";
+      return "mdi:wifi-strength-1";
+    update_interval: 60s
