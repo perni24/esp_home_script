@@ -10,6 +10,9 @@ esp32:
     sdkconfig_options:
       CONFIG_OPENTHREAD_ENABLED: "y"
 
+network:
+  enable_ipv6: true
+
 ota:
   - platform: esphome
     password: ${ota_password}
