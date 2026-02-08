@@ -1,0 +1,22 @@
+substitutions:
+  name: ""
+  friendly_name: ""
+  api_key: ""
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+
+esp32:
+  board: esp32-c6-devkitc-1
+  variant: esp32c6
+  framework:
+    type: esp-idf
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: ${api_key}
+
+# Enable logging
+logger:

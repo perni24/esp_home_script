@@ -1,0 +1,23 @@
+
+substitutions:
+  openthread_tlv: ""
+  # a true ignora la configurazione salvata nella memoria flash e la sovrascrive
+  openthread_force_dataset: "true"
+  # indica il tempo di sleepymode del dispositivo, necessaria con MTD
+  openthread_poll_period: "3000ms"
+  ota_password: ""
+
+esp32:
+  framework:
+    sdkconfig_options:
+      CONFIG_OPENTHREAD_ENABLED: "y"
+
+ota:
+  - platform: esphome
+    password: ${ota_password}
+    
+openthread:
+  tlv: ${openthread_tlv}
+  device_type: MTD
+  poll_period: ${openthread_poll_period}
+  force_dataset: ${openthread_force_dataset}

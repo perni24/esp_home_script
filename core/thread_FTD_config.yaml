@@ -1,0 +1,20 @@
+
+substitutions:
+  openthread_tlv: ""
+  # a true ignora la configurazione salvata nella memoria flash e la sovrascrive
+  openthread_force_dataset: "true"
+  ota_password: ""
+
+esp32:
+  framework:
+    sdkconfig_options:
+      CONFIG_OPENTHREAD_ENABLED: "y"
+
+ota:
+  - platform: esphome
+    password: ${ota_password}
+
+openthread:
+  tlv: ${openthread_tlv}
+  device_type: FTD
+  force_dataset: ${openthread_force_dataset}

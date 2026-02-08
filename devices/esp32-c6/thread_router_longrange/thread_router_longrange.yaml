@@ -1,0 +1,23 @@
+substitutions:
+  name: ""
+  friendly_name: ""
+  api_key: ""
+  openthread_tlv: ""
+  openthread_force_dataset: "true"
+  ota_password: ""
+
+packages: 
+
+  board:
+    url: 
+    ref: main
+    file: boards/esp32-c6.yaml
+    refresh: 1d
+
+  core:
+    url: 
+    ref: main
+    file: core/thread_FTD_config.yaml
+    refresh: 1d
+
+  
