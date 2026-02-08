@@ -9,13 +9,13 @@ substitutions:
 packages: 
 
   board:
-    url: 
+    url: https://github.com/perni24/esp_home_script.git
     ref: main
     file: boards/esp32-c6.yaml
     refresh: 1d
 
   core:
-    url: 
+    url: https://github.com/perni24/esp_home_script.git
     ref: main
     file: core/thread_FTD_config.yaml
     refresh: 1d
