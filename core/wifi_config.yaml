@@ -23,7 +23,7 @@ wifi:
   reboot_timeout: ${wifi_reboot_timeout}
   ap:
     # device name è una variabile di sistema generata in automatico
-    ssid: "Fallback-Hotspot-${device_name}"
+    ssid: "Fallback-Hotspot-${name}"
     password: ${wifi_ap_password}
     ap_timeout: ${wifi_ap_timeout}
 
@@ -45,10 +45,4 @@ text_sensor:
       if (id(wifi_dbm).state > -70) return {"Buono"};
       if (id(wifi_dbm).state > -80) return {"Scarso"};
       return {"Pessimo"};
-    icon: |-
-      if (std::isnan(id(wifi_dbm).state)) return "mdi:wifi-refresh";
-      if (id(wifi_dbm).state > -60) return "mdi:wifi-strength-4";
-      if (id(wifi_dbm).state > -70) return "mdi:wifi-strength-3";
-      if (id(wifi_dbm).state > -80) return "mdi:wifi-strength-2";
-      return "mdi:wifi-strength-1";
     update_interval: 60s
