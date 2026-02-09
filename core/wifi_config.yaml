@@ -45,7 +45,7 @@ text_sensor:
       if (id(wifi_dbm).state > -70) return {"Buono"};
       if (id(wifi_dbm).state > -80) return {"Scarso"};
       return {"Pessimo"};
-    icon_template: |-
+    icon: |-
       if (std::isnan(id(wifi_dbm).state)) return "mdi:wifi-refresh";
       if (id(wifi_dbm).state > -60) return "mdi:wifi-strength-4";
       if (id(wifi_dbm).state > -70) return "mdi:wifi-strength-3";
