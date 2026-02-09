@@ -40,10 +40,4 @@ text_sensor:
       if (id(thread_rssi).state > -85) return {"Sufficiente"};
       if (id(thread_rssi).state > -95) return {"Scarso"};
       return {"Critico"};
-    icon_template: |-
-      if (std::isnan(id(thread_rssi).state)) return "mdi:wifi-refresh";
-      if (id(thread_rssi).state > -60) return "mdi:wifi-strength-4";
-      if (id(thread_rssi).state > -75) return "mdi:wifi-strength-3";
-      if (id(thread_rssi).state > -85) return "mdi:wifi-strength-2";
-      return "mdi:wifi-strength-1";
     update_interval: 60s
