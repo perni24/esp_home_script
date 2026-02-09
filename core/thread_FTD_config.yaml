@@ -21,23 +21,3 @@ openthread:
   tlv: ${openthread_tlv}
   device_type: FTD
   force_dataset: ${openthread_force_dataset}
-
-sensor:
-  - platform: thread_network
-    rssi:
-      name: "Thread Signal RSSI"
-      id: thread_rssi
-
-text_sensor:
-  - platform: template
-    name: "Thread Quality"
-    lambda: |-
-      if (std::isnan(id(thread_rssi).state)) {
-        return {"In attesa..."};
-      }
-      if (id(thread_rssi).state > -60) return {"Eccellente"};
-      if (id(thread_rssi).state > -75) return {"Buono"};
-      if (id(thread_rssi).state > -85) return {"Sufficiente"};
-      if (id(thread_rssi).state > -95) return {"Scarso"};
-      return {"Critico"};
-    update_interval: 60s
