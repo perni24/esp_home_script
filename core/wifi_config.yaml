@@ -39,7 +39,7 @@ text_sensor:
   - platform: template
     name: "WiFi Quality"
     lambda: |-
-      if (std::isnan(id(wifi_dbm).state)) return {"In attesa..."}
+      if (std::isnan(id(wifi_dbm).state)) return {"In attesa..."};
       if (id(wifi_dbm).state > -50) return {"Eccellente"};
       if (id(wifi_dbm).state > -60) return {"Ottimo"};
       if (id(wifi_dbm).state > -70) return {"Buono"};
