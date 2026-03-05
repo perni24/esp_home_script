@@ -1,0 +1,25 @@
+{
+	"nodes":[
+		{"id":"4c9944f7dc6909ee","type":"text","text":"PWMA","x":-460,"y":-680,"width":100,"height":60,"color":"1"},
+		{"id":"e673f5ab724f35aa","type":"text","text":"AIN2","x":-460,"y":-620,"width":100,"height":60,"color":"1"},
+		{"id":"4aea22cbc077f548","type":"text","text":"AIN1","x":-460,"y":-560,"width":100,"height":60,"color":"1"},
+		{"id":"5e0fcf7e481a66b6","type":"text","text":"STBY","x":-460,"y":-500,"width":100,"height":60,"color":"1"},
+		{"id":"039fc6e1ddac179b","type":"text","text":"BIN1","x":-460,"y":-440,"width":100,"height":60,"color":"1"},
+		{"id":"e529d884a0562b4c","type":"text","text":"BIN2","x":-460,"y":-380,"width":100,"height":60,"color":"1"},
+		{"id":"9e129532b7f49f65","type":"text","text":"PWMB","x":-460,"y":-320,"width":100,"height":60,"color":"1"},
+		{"id":"b798c6d9e6a941a0","type":"text","text":"GND","x":-460,"y":-260,"width":100,"height":60,"color":"1"},
+		{"id":"63f27c73dca296a2","type":"text","text":"# TB6612","x":-360,"y":-680,"width":280,"height":480,"color":"1"},
+		{"id":"c3cf4fe2aae4eb68","type":"text","text":"AO1","x":-80,"y":-500,"width":110,"height":60,"color":"1"},
+		{"id":"322741e824ec9e13","type":"text","text":"AO2","x":-80,"y":-440,"width":110,"height":60,"color":"1"},
+		{"id":"cad36acbabed52ce","type":"text","text":"BO2","x":-80,"y":-380,"width":110,"height":60,"color":"1"},
+		{"id":"10a2098a4047433a","type":"text","text":"BO1","x":-80,"y":-320,"width":110,"height":60,"color":"1"},
+		{"id":"b60a0e0602b62374","type":"text","text":"GND","x":-80,"y":-260,"width":110,"height":60,"color":"1"},
+		{"id":"63aa8eeed3652d1e","type":"text","text":"VM","x":-80,"y":-680,"width":110,"height":60,"color":"1"},
+		{"id":"4fc9cb06fda3e6b2","type":"text","text":"VCC","x":-80,"y":-620,"width":110,"height":60,"color":"1"},
+		{"id":"ef2e6c6cf7283289","type":"text","text":"GND","x":-80,"y":-560,"width":110,"height":60,"color":"1"},
+		{"id":"5ce18900f7c4affc","x":-360,"y":-1440,"width":280,"height":300,"color":"#000000","type":"text","text":"# **ESP32-C6**"},
+		{"id":"010d4fbe50d4a8ab","x":-380,"y":200,"width":320,"height":270,"type":"text","text":"# **Motore**"},
+		{"id":"4bc96b1d57d342d0","x":-1480,"y":-580,"width":250,"height":230,"type":"text","text":"# Alimentazione\n"}
+	],
+	"edges":[]
+}
