@@ -1,0 +1,27 @@
+substitutions:
+  name: ""
+  pin_pwm: ""
+  pin_in1: ""
+  pin_in2: "" 
+  speed_count: "100"
+
+output:
+  - platform: ledc
+    pin: ${pin_pwm}
+    id: ${name}_pwm_out 
+
+  - platform: gpio
+    pin: ${pin_in1}
+    id: ${name}_in1_out
+
+  - platform: gpio
+    pin: ${pin_in2}
+    id: ${name}_in2_out
+
+fan:
+  - platform: hbridge
+    name: "${name}"
+    pin_a: ${name}_in1_out
+    pin_b: ${name}_in2_out
+    speed_count: ${speed_count}
+    speed: ${name}_pwm_out

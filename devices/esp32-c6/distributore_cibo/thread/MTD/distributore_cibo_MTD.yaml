@@ -1,0 +1,50 @@
+substitutions:
+  # esp-c6
+  name: ""
+  friendly_name: ""
+  api_key: ""
+  # thread MTD
+  openthread_tlv: ""
+  openthread_force_dataset: "true"
+  openthread_poll_period: "3000ms"
+  ota_password: ""
+  # TB6612
+  name: ""
+  pin_pwm: ""
+  pin_in1: ""
+  pin_in2: "" 
+  speed_count: "100"
+  # switch
+  pin_stby: ""
+  name_stby: ""
+
+
+packages:
+
+  board:
+      url: https://github.com/perni24/esp_home_script.git
+      ref: main
+      file: boards/esp32-c6.yaml
+      refresh: 1d
+
+  core:
+    url: https://github.com/perni24/esp_home_script.git
+    ref: main
+    file: core/thread_MTD_config.yaml
+    refresh: 1d
+
+  tb6612: 
+    url: https://github.com/perni24/esp_home_script.git
+    ref: main
+    file: sensors/TB6612/TB6612.yaml
+    refresh: 1d
+
+# pulsante per spegnere il motore
+switch:
+  - platform: gpio
+    pin: ${pin_stby} 
+    name: "${name_stby}"
+    id: global_stby
+    restore_mode: ALWAYS_ON
+
+  
