@@ -1,6 +1,6 @@
 substitutions:
   # esp-c6
-  name: ""
+  name_esp32c6: ""
   friendly_name: ""
   api_key: ""
   # thread MTD
@@ -9,7 +9,7 @@ substitutions:
   openthread_poll_period: "3000ms"
   ota_password: ""
   # TB6612
-  name: ""
+  name_TB6612: ""
   pin_pwm: ""
   pin_in1: ""
   pin_in2: "" 
@@ -17,15 +17,23 @@ substitutions:
   # switch
   pin_stby: ""
   name_stby: ""
+  # max17043_1 es: batteria per esp
+  name_max17043_1: ""
+  pin_sda_1: ""
+  pin_scl_1: ""
+  # max17043_2 es:batteria per motore
+  name_max17043_2: ""
+  pin_sda_2: ""
+  pin_scl_2: ""
 
 
 packages:
 
   board:
-      url: https://github.com/perni24/esp_home_script.git
-      ref: main
-      file: boards/esp32-c6.yaml
-      refresh: 1d
+    url: https://github.com/perni24/esp_home_script.git
+    ref: main
+    file: boards/esp32-c6.yaml
+    refresh: 1d
 
   core:
     url: https://github.com/perni24/esp_home_script.git
@@ -38,6 +46,26 @@ packages:
     ref: main
     file: sensors/TB6612/TB6612.yaml
     refresh: 1d
+
+  max17043_1:
+    url: https://github.com/perni24/esp_home_script.git
+    ref: main
+    file: sensors/MAX17043/MAX17043.yaml
+    refresh: 1d
+    substitutions:
+      name_max17043: ${name_max17043_1}
+      pin_sda: ${pin_sda_1}
+      pin_scl: ${pin_scl_1}
+
+  max17043_2:
+    url: https://github.com/perni24/esp_home_script.git
+    ref: main
+    file: sensors/MAX17043/MAX17043.yaml
+    refresh: 1d
+    substitutions:
+      name_max17043: ${name_max17043_2}
+      pin_sda: ${pin_sda_2}
+      pin_scl: ${pin_scl_2}
 
 # pulsante per spegnere il motore
 switch:

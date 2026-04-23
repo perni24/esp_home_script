@@ -1,5 +1,5 @@
 substitutions:
-  name: ""
+  name_TB6612: ""
   pin_pwm: ""
   pin_in1: ""
   pin_in2: "" 
@@ -8,20 +8,20 @@ substitutions:
 output:
   - platform: ledc
     pin: ${pin_pwm}
-    id: ${name}_pwm_out 
+    id: ${name_TB6612}_pwm_out 
 
   - platform: gpio
     pin: ${pin_in1}
-    id: ${name}_in1_out
+    id: ${name_TB6612}_in1_out
 
   - platform: gpio
     pin: ${pin_in2}
-    id: ${name}_in2_out
+    id: ${name_TB6612}_in2_out
 
 fan:
   - platform: hbridge
-    name: "${name}"
-    pin_a: ${name}_in1_out
-    pin_b: ${name}_in2_out
+    name: "${name_TB6612}"
+    pin_a: ${name_TB6612}_in1_out
+    pin_b: ${name_TB6612}_in2_out
     speed_count: ${speed_count}
-    speed: ${name}_pwm_out
+    speed: ${name_TB6612}_pwm_out

@@ -1,5 +1,5 @@
 substitutions:
-  name: ""
+  name_esp32c6: ""
   friendly_name: ""
   api_key: ""
 
