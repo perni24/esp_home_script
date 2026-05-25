@@ -1,15 +1,15 @@
 substitutions:
-  name_esp32c6: ""
+  name_esp32c3: ""
   friendly_name: ""
   api_key: ""
 
 esphome:
-  name: ${name_esp32c6}
+  name: ${name_esp32c3}
   friendly_name: ${friendly_name}
 
 esp32:
-  board: esp32-c6-devkitc-1
-  variant: esp32c6
+  board: esp32-c3-devkitm-1
+  variant: esp32c3
   framework:
     type: esp-idf
 
@@ -17,5 +17,4 @@ api:
   encryption:
     key: ${api_key}
 
-# Enable logging
 logger:

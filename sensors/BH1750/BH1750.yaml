@@ -1,0 +1,21 @@
+substitutions:
+  id_BH1750: ""
+  name_BH1750: ""
+  pin_sda_BH1750: ""
+  pin_scl_BH1750: ""
+  update_interval_BH1750: ""
+  address_BH1750: ""
+
+i2c:
+  - id: bus_BH1750
+    sda: ${pin_sda_BH1750}
+    scl: ${pin_scl_BH1750}
+    scan: true
+
+sensor:
+  - platform: bh1750
+    id: ${id_BH1750}
+    name: ${name_BH1750}
+    i2c_id: bus_BH1750
+    address: ${address_BH1750}
+    update_interval: ${update_interval_BH1750}
