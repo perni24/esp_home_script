@@ -1,20 +1,13 @@
 substitutions:
-  id_MAX17043: ""
-  name_MAX17043: ""
-  pin_sda_MAX17043: ""
-  pin_scl_MAX17043: ""
-
-i2c:
-  - id: bus_MAX17043
-    sda: ${pin_sda_MAX17043}
-    scl: ${pin_scl_MAX17043}
-    scan: true
+  id_max17043: ""
+  name_max17043: ""
+  i2c_id: ""
 
 sensor:
   - platform: max17043
-    id: ${id_MAX17043}
-    i2c_id: bus_MAX17043
+    id: ${id_max17043}
+    i2c_id: ${i2c_id}
     battery_voltage:
-      name: "Battery Voltage ${name_MAX17043}"
+      name: "Battery Voltage ${name_max17043}"
     battery_level:
-      name: "Battery ${name_MAX17043}"
+      name: "Battery ${name_max17043}"

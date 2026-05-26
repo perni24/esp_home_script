@@ -1,0 +1,20 @@
+substitutions:
+  id_temperatura_sht3xd: ""
+  id_umidita_sht3xd: ""
+  name_temperatura_sht3xd: ""
+  name_umidita_sht3xd: ""
+  i2c_id: ""
+  address_sht3xd: ""
+  update_interval_sht3xd: ""
+
+sensor:
+  - platform: sht3xd
+    i2c_id: ${i2c_id}
+    temperature:
+      id: ${id_temperatura_sht3xd}
+      name: ${name_temperatura_sht3xd}
+    humidity:
+      id: ${id_umidita_sht3xd}
+      name: ${name_umidita_sht3xd}
+    address: ${address_sht3xd}
+    update_interval: ${update_interval_sht3xd}
