@@ -35,15 +35,19 @@ sensor:
     name: "WiFi Signal"
     id: wifi_dbm
     update_interval: 60s
+    on_value:
+      then:
+        - text_sensor.template.publish:
+            id: wifi_quality
+            state: !lambda |-
+              if (std::isnan(x)) return "In attesa...";
+              if (x > -50) return "Eccellente";
+              if (x > -60) return "Ottimo";
+              if (x > -70) return "Buono";
+              if (x > -80) return "Scarso";
+              return "Pessimo";
 
 text_sensor:
   - platform: template
     name: "WiFi Quality"
-    lambda: |-
-      if (std::isnan(id(wifi_dbm).state)) return {"In attesa..."};
-      if (id(wifi_dbm).state > -50) return {"Eccellente"};
-      if (id(wifi_dbm).state > -60) return {"Ottimo"};
-      if (id(wifi_dbm).state > -70) return {"Buono"};
-      if (id(wifi_dbm).state > -80) return {"Scarso"};
-      return {"Pessimo"};
-    update_interval: 60s
+    id: wifi_quality
