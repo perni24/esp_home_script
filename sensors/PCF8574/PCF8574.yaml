@@ -1,0 +1,9 @@
+substitutions:
+  id_pcf8574: ""
+  address_pcf8574: ""
+  pcf8575: "false"
+
+pcf8574:
+  - id: ${id_pcf8574}
+    address: ${address_pcf8574}
+    pcf8575: ${pcf8575}
