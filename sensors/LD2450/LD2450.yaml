@@ -1,0 +1,26 @@
+substitutions:
+  id_ld2450: ""
+  uart_id: ""
+  id_has_target: ""
+  name_has_target: ""
+  id_has_moving_target: ""
+  name_has_moving_target: ""
+  id_has_still_target: ""
+  name_has_still_target: ""
+
+ld2450:
+  id: ${id_ld2450}
+  uart_id: ${uart_id}
+
+binary_sensor:
+  - platform: ld2450
+    ld2450_id: ${id_ld2450}
+    has_target:
+      id: ${id_has_target}
+      name: ${name_has_target}
+    has_moving_target:
+      id: ${id_has_moving_target}
+      name: ${name_has_moving_target}
+    has_still_target:
+      id: ${id_has_still_target}
+      name: ${name_has_still_target}
