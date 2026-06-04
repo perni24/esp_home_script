@@ -1,0 +1,24 @@
+substitutions:
+  id: "" 
+  name: ""
+  pin: ""
+  attenuation: "12dB"
+  samples: "10"
+  accuracy_decimals: "2"
+  update_interval: "5s"
+  unit_of_measurement: ""
+  psi_massimi: "60.0"
+  volt_massimi: "3.3"
+
+sensor:
+  - platform: adc
+    id: ${id}
+    name: ${name}
+    pin: ${pin}
+    attenuation: ${attenuation}  # potrebbe andare in errore nel caso spostare dentro tag pin e aggiungere number sempre dentro pin
+    samples: ${samples}
+    accuracy_decimals: ${accuracy_decimals}
+    update_interval: ${update_interval}
+    unit_of_measurement: ${unit_of_measurement}
+    filters:
+      - lambda: return x * (${psi_massimi} / ${volt_massimi});

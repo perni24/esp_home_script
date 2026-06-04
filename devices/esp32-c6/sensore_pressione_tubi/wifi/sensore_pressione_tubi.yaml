@@ -1,0 +1,50 @@
+substitutions:
+  name: ""
+  api_key: ""
+  wifi_ap_password: ""
+  ota_password: ""
+
+packages:
+  remote_packages:
+    url: https://github.com/perni24/esp_home_script.git
+    ref: master
+    refresh: 0s
+    files:
+
+      - path: board/esp32-c6.yaml
+        vars:
+          name_esp32c6: ${name}
+          friendly_name: ${name}
+          api_key: ${api_key}
+
+      - path: core/wifi_config.yaml
+        vars:
+        name: ${name}
+        wifi_fast_connect: "true"
+        wifi_power_save_mode: "none" 
+        wifi_reboot_timeout: "15min" 
+        wifi_ap_timeout: "1min"
+        wifi_ap_password: ${wifi_ap_password}
+        ota_password: ${ota_password}
+
+      - path: sensors/analogico/analogico.yaml
+        vars:
+          id: "pressione_psi"
+          name: "Pressione Tubo (psi)"
+          pin: "GPIO04"
+          attenuation: "12dB"
+          samples: "10"
+          accuracy_decimals: "2"
+          update_interval: "5s"
+          unit_of_measurement: "psi"
+          psi_massimi: "60.0"
+          volt_massimi: "3.3"
+
+sensor:
+  - platform: template
+    name: "Pressione Tubo (bar)" 
+    update_interval: 5s
+    unit_of_measurement: "bar"
+    lambda: |- 
+          if (isnan(id(pressione_psi).state)) return NAN;
+          return id(pressione_psi).state * 0.0689476;
