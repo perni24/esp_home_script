@@ -2,13 +2,13 @@ substitutions:
   id: "" 
   name: ""
   pin: ""
-  attenuation: "12dB"
-  samples: "10"
-  accuracy_decimals: "2"
-  update_interval: "5s"
+  attenuation: ""
+  samples: ""
+  accuracy_decimals: ""
+  update_interval: ""
   unit_of_measurement: ""
-  psi_massimi: "60.0"
-  volt_massimi: "3.3"
+  psi_massimi: ""
+  volt_massimi: ""
 
 sensor:
   - platform: adc

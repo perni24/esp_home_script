@@ -3,15 +3,23 @@ substitutions:
   api_key: ""
   wifi_ap_password: ""
   ota_password: ""
+  sda_i2c: ""
+  scl_i2c: ""
+
+i2c:
+  sda: ${sda_i2c}
+  scl: ${scl_i2c}
+  scan: true
+  id: bus_a
 
 packages:
   remote_packages:
     url: https://github.com/perni24/esp_home_script.git
-    ref: master
+    ref: main
     refresh: 0s
     files:
 
-      - path: board/esp32-c6.yaml
+      - path: boards/esp32-c6.yaml
         vars:
           name_esp32c6: ${name}
           friendly_name: ${name}
@@ -19,13 +27,13 @@ packages:
 
       - path: core/wifi_config.yaml
         vars:
-        name: ${name}
-        wifi_fast_connect: "true"
-        wifi_power_save_mode: "none" 
-        wifi_reboot_timeout: "15min" 
-        wifi_ap_timeout: "1min"
-        wifi_ap_password: ${wifi_ap_password}
-        ota_password: ${ota_password}
+          name: ${name}
+          wifi_fast_connect: "true"
+          wifi_power_save_mode: "none" 
+          wifi_reboot_timeout: "15min" 
+          wifi_ap_timeout: "1min"
+          wifi_ap_password: ${wifi_ap_password}
+          ota_password: ${ota_password}
 
       - path: sensors/analogico/analogico.yaml
         vars:
@@ -39,6 +47,12 @@ packages:
           unit_of_measurement: "psi"
           psi_massimi: "60.0"
           volt_massimi: "3.3"
+
+      - path: sensors/MAX17043/MAX17043.yaml
+        vars:
+          id_max17043: "stato_batteria"
+          name_max17043: "Stato Batteria"
+          i2c_id: "bus_a"
 
 sensor:
   - platform: template
