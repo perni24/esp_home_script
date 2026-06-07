@@ -3,12 +3,10 @@ substitutions:
   api_key: ""
   wifi_ap_password: ""
   ota_password: ""
-  sda_i2c: ""
-  scl_i2c: ""
 
 i2c:
-  sda: ${sda_i2c}
-  scl: ${scl_i2c}
+  sda: "GPIO06"
+  scl: "GPIO07"
   scan: true
   id: bus_a
 
