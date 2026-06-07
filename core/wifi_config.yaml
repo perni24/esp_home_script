@@ -22,7 +22,7 @@ wifi:
   reboot_timeout: ${wifi_reboot_timeout}
   ap:
     # device name è una variabile di sistema generata in automatico
-    ssid: "Fallback-Hotspot-${name}"
+    ssid: "Hotspot-${name}"
     password: ${wifi_ap_password}
     ap_timeout: ${wifi_ap_timeout}
 
